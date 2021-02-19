@@ -11,6 +11,8 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <style>
         #heroSection{
@@ -220,7 +222,7 @@
       </div>
 
       <div class="py-2 text-center">
-        <a href="#nav-scanner">
+        <a href="#makeNowSection">
           <button type="button" class="btn btn-secondary btn-sm btn-block">Make now &raquo;</button>
         </a>
       </div>
@@ -365,10 +367,10 @@
         </div>
         <div class="row my-4">
           <div class="col-sm-6 offset-sm-3">
-            <div class="card card-1 p-4 evenSection">
+            <div class="card card-1 p-4 evenSection" id="card2">
               <div class="row g-0">
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                  <img id="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A94&choe=UTF-8" alt="QR-Code">
+                  <img id="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A94&choe=UTF-8" alt="QR-Code" crossOrigin="anonymous">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -398,12 +400,8 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <button id="save" class="btn btn-success">Download</button>
+            <button id="save" onclick="return download()" class="btn btn-success">Download</button>
           </div>
-        </div>
-
-        <div class="row">
-          <image id="theimage"></image>
         </div>
       </div>
     </div>
@@ -413,7 +411,7 @@
 
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
+    <p class="float-end"><a href="#"><i class="fas fa-caret-square-up fa-2x"></i></a></p>
     <p>&copy; 2021 &#8226; Made with &hearts; by <a href="mailto:ykumat@gmail.com">Yash Kumat</a></p>
   </footer>
 </main>
@@ -491,34 +489,9 @@
       document.getElementById('social1Symbol').innerHTML = icon(parseInt(social1Option))
       document.getElementById('social1Val').innerHTML = '@'+social1Value
 
-      var getImageFromUrl = function(url, callback) {
-          var img = new Image();
-
-          img.onError = function() {
-              alert('Cannot load image: "'+url+'"');
-          };
-          img.onload = function() {
-              callback(img);
-          };
-          img.src = url;
-      }
-
-      var createPDF = function(imgData) {
-        var doc = new jsPDF();
-
-
-
-        doc.addImage(imgData, 'JPEG', 10, 10, 50, 50, 'monkey');
-        doc.addImage('monkey', 70, 10, 100, 120); // use the cached 'monkey' image, JPEG is optional regardless
-
-
-
-        doc.output('datauri');
-    }
-
-    getImageFromUrl(`https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A${mobileNumber}&choe=UTF-8`, createPDF);
       
       qrCode.setAttribute('src', `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A${mobileNumber}&choe=UTF-8`);
+      
 
       if(isEmpty(social2Option)){
         document.getElementById('social2Symbol').innerHTML = ""
@@ -530,7 +503,50 @@
       
       document.getElementById('card1').classList.remove('visually-hidden')
 
+      toDataURL(qrCode.src, function(dataURL){
+      // result.src = dataURL;
+
+      // now just to show that passing to a canvas doesn't hold the same results
+      var canvas = document.createElement('canvas');
+      canvas.width = qrCode.naturalWidth;
+      canvas.height = qrCode.naturalHeight;
+      canvas.getContext('2d').drawImage(qrCode, 0,0);
+      qrCode.setAttribute('src', canvas.toDataURL());
+      console.log(canvas.toDataURL()); // false - not same data
+      });
+
     }
+
+    function toDataURL(url, callback){
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', url);
+        xhr.responseType = 'blob';
+        xhr.onload = function(){
+          var fr = new FileReader();
+        
+          fr.onload = function(){
+            callback(this.result);
+          };
+        
+          fr.readAsDataURL(xhr.response); // async call
+        };
+        
+        xhr.send();
+    }
+
+    function download() {
+        html2canvas(document.getElementById('card2'), {
+            onrendered: function(canvas) {
+                var name = document.getElementById('name').value;
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF();
+
+                pdf.addImage(imgData, 'JPEG', 10, 10);
+
+                pdf.save(name+'s-businessCard.pdf');
+            }
+        });
+  }
   
 </script>
       
