@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>VC Maker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha512-s/XK4vYVXTGeUSv4bRPOuxSDmDlTedEpMEcAQk0t/FMd9V6ft8iXdwSBxV0eD60c6w/tjotSlKu9J2AAW1ckTA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-canvas-to-blob/3.28.0/js/canvas-to-blob.min.js" integrity="sha512-Q0RYciuNUJLzUgA9T0A0yj1A5wR+rM7MDr3hKBJuNBaSW5O2TqRyBMMLswe7Z/M9czXRnD/5mh1/xQpDpxFZaA==" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script> -->
+
+    <style>
+        #heroSection{
+            margin-top: 5rem;
+        }
+        .heading{
+            font-size: 50px;
+        }
+        .list-group-item{
+          font-size: x-large;
+        }
+        .evenSection{
+          background-color: #f9f9f9;
+        }
+        .card-1 .social svg{
+          margin-bottom: 10px;
+        }
+        .card-2 .social svg{
+          background-color: white;
+          padding: 2px;
+        }
+        .card-2 .social{
+          margin: 4px;
+        }
+        .card-2 .social .username{
+          margin-right: 10px;
+        }
+        
+    </style>
+  </head>
+  <body>
+    
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Business Card Maker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0 mx-4 ">
+          <li class="nav-item">
+            <a class="nav-link" href="#howToMakeSection">How to make?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#sampleSection">Sample</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#makeNowSection">Make now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Container -->
+  <div class="container ">
+
+    <!-- Hero Section -->
+    <section id="heroSection" class="oddSection">
+      <div class="row">
+        <div class="col-md-7 py-4 col-md-push-5">
+          <h2 class="heading">Make your own Business Card <span class="text-muted">With Scan To Call QR-Code</span></h2>
+          <div class="row py-4">
+              <div class="col-md-auto">
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        No privacy breach
+                      </li>
+                      <li class="list-group-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                        Easy to make
+                      </li>
+                      <li class="list-group-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                        Download & Share
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="row px-3">
+              <div class="col">
+                  <a href="#makeNowSection">
+                    <button type="button" class="btn btn-secondary btn-sm btn-block">Make Now &raquo;</button>
+                  </a>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-5 p-4 col-md-pull-7">
+          <img class="img-fluid mx-auto" width="500" height="500" src="heroImage.png" />
+        </div>
+      </div>
+    </section>
+    
+    <hr>
+
+    <!-- How to make section -->
+    <section id="howToMakeSection" class="evenSection">
+      <div class="row">
+        <div class="col text-center p-4">
+            <h1 class="display-3">How to make?</h1>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-lg-4 p-4">
+            <center>
+          <img class="rounded-circle" src="start.png" width="140" height="140" />
+          <h2>Fill Form</h2>
+          <p>Fill complete form with proper details for proper build and working.</p>
+          </center>
+        </div>
+        <div class="col-lg-4 p-4">
+            <center>
+          <img class="rounded-circle" src="build.png" width="140" height="140" />
+          <h2>Build Card</h2>
+          <p>Check the sample once it is built, verify working of QR-Code.</p>
+          </center>
+        </div>
+        <div class="col-lg-4 p-4">
+            <center>
+          <img class="rounded-circle" src="end.png" width="140" height="140" />
+          <h2>Download & Share</h2>
+          <p>Download your business card on single click. Share at ready instance.</p>
+          </center>
+        </div>
+      </div>
+    </section>
+    
+    <hr>
+
+    <!-- SampleSection -->
+    <section id="sampleSection" class="oddSection">
+      <div class="row">
+        <div class="col text-center pt-4">
+            <h1 class="display-3">Sample Cards</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3 p-4">
+          <div class="h3 py-3 pt-4 text-center">
+            Card with QR-Code
+          </div>
+          <div class="card card-1 p-4 evenSection">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A9527526222&choe=UTF-8" alt="QR-Code">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">Yash Sanjay Kumat</h2>
+                  <hr>
+                  <h5 class="card-text">Laravel Developer</h5>
+                  <p class="card-text"><small class="text-muted">Nashik | Mumbai</small></p>
+                  <div class="d-flex flex-row">
+                      <div class="my-2">
+                        <i class="fab fa-lg fa-instagram"></i>
+                        <span class="username">@yashkumat</span>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;
+                      <div class="my-2">
+                        <i class="fab fa-lg fa-facebook-f"></i>
+                        <span class="username">@yashkumat</span>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col p-4">
+          <div class="h3 py-3 pt-4 text-center">
+            Card with Image/Logo + QR-Code
+          </div>
+          <div class="card card-2 p-3 evenSection">
+            <div class="row g-0">
+              <div class="col-md-4 d-flex align-items-center justify-content-center px-2">
+                <img src="https://picsum.photos/id/1005/200/200" class="img-fluid rounded-circle" alt="DP">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">Yash Sanjay Kumat</h2>
+                  <hr>
+                  <h5 class="card-text">Laravel Developer</h5>
+                  <p class="card-text"><small class="text-muted">Nashik | Mumbai</small></p>
+                  <div class="d-flex justify-content-start align-items-end flex-column">
+                    <div class="pt-1">
+                        <span class="username">09527526222</span>
+                        <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A9527526222&choe=UTF-8" width="30" height="30" alt="QR-Code">
+                    </div>
+                    <div class="mt-1">
+                      <span class="username">@yashkumat</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="py-2 text-center">
+        <a href="#nav-scanner">
+          <button type="button" class="btn btn-secondary btn-sm btn-block">Make now &raquo;</button>
+        </a>
+      </div>
+      
+    </section>
+      
+    <hr>
+
+    <section class="" id="makeNowSection">
+      <div class="row">
+        <div class="col text-center m-4">
+            <h2 class="display-3">Make Now</h2>
+        </div>
+    </div>
+    <form>
+      <div class="row ">
+        <div class="col-12">
+          <!-- <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-scanner-tab" data-bs-toggle="tab" data-bs-target="#nav-scanner" type="button" role="tab" aria-controls="nav-scanner" aria-selected="true">Scanner card</button>
+              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Image card</button>
+            </div>
+          </nav> -->
+          <div class="row mt-4 ">
+            <div class="col-sm-6 offset-sm-3 p-4 evenSection">
+              <div class="row">
+                <div class="mb-3 col-12">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Yash Sanjay Kumat" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-6">
+                  <label for="city2" class="form-label">City 1</label>
+                  <input type="text" class="form-control" id="city1" placeholder="Nashik" required>
+                </div>
+                <div class="mb-3 col-6">
+                  <label for="city2" class="form-label">City 2 *</label>
+                  <input type="text" class="form-control" id="city2" placeholder="Mumbai">
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-6">
+                  <label for="mobileNumber" class="form-label">Mobile number</label>
+                  <input type="text" class="form-control" id="mobileNumber" placeholder="09527526222" required>
+                </div>
+                <div class="mb-3 col-6">
+                  <label for="designation" class="form-label">Designation</label>
+                  <input type="text" class="form-control" id="designation" placeholder="Web Developer" required>
+                </div>
+              </div>
+                
+              <div class="row">
+                <div class="mb-3 col-6">
+                  <select class="form-select" id="social1Option" aria-label="Default select example" required>
+                    <option selected disabled>Social 1</option>
+                    <option value="0">Facebook</option>
+                    <option value="1">Snapchat</option>
+                    <option value="2">Twitter</option>
+                    <option value="3">Instagram</option>
+                  </select>
+                </div>
+                <div class="mb-3 col-6">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    <input type="text" id="social1Value" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" required>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="row">
+                <div class="mb-3 col-6">
+                  <select class="form-select" id="social2Option" aria-label="Default select example">
+                  <option value='' selected disabled>Social 2</option>
+                    <option value="7">UPI Id</option>
+                    <option value="4">Github</option>
+                    <option value="5">Medium</option>
+                    <option value="6">Linkedin</option>
+                    <option value="0">Facebook</option>
+                    <option value="1">Snapchat</option>
+                    <option value="2">Twitter</option>
+                    <option value="3">Instagram</option>
+                  </select>
+                </div>
+                <div class="mb-3 col-6">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">@</span>
+                    <input type="text" id="social2Value" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-12">
+                  <button type="submit" onclick="return makeCard1(event);" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-scanner" role="tabpanel" aria-labelledby="nav-scanner-tab">
+              <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                  <div class="row">
+                    <div class="mb-3 col-12">
+                      <button type="submit" onclick="return makeCard1(event);" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                  <div class="row">
+                    <div class="mb-3 col-12">
+                      <label for="formFile" class="form-label">Display Picture</label>
+                      <input class="form-control" id="image" type="file">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="mb-3 col-12">
+                      <button type="submit" onclick="return makeCard1(event);" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                    
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </form>
+    </section>
+    
+    <hr>
+
+    <div class="row visually-hidden" id="card1">
+      <div class="col p-4">
+        <div class="h3 py-3 pt-4 text-center">
+          Your Business Card is ready!
+        </div>
+        <div class="row my-4">
+          <div class="col-sm-6 offset-sm-3">
+            <div class="card card-1 p-4 evenSection">
+              <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                  <img id="qr-code" src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A94&choe=UTF-8" alt="QR-Code">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title" id="nameValue">Yash Sanjay Kumat</h2>
+                    <hr>
+                    <h5 class="card-text" id="designationValue">Laravel Developer</h5>
+                    <p class="card-text"><small class="text-muted"><span id="city1Value">Nashik</span><span id="city2Value">| Mumbai</span></small></p>
+                    <div class="d-flex flex-row">
+                        <div class="my-2">
+                          <span id="social1Symbol">
+                            <i class="fab fa-lg fa-facebook-f"></i>
+                          </span>
+                          <span id="social1Val">@yashkumat</span>
+                        </div>
+                        <div class="m-2">
+                          <span id="social2Symbol">
+                            <i class="fab fa-lg fa-instagram"></i>
+                          </span>
+                          <span id="social2Val">@yashkumat</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <button id="save">Download</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <image id="theimage"></image>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2021 &#8226; Made with &hearts; by <a href="mailto:ykumat@gmail.com">Yash Kumat</a></p>
+  </footer>
+</main>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+  <script>
+
+    // var fileTag = document.getElementById("image"),
+    //     preview = document.getElementById("preview");
+        
+    // fileTag.addEventListener("change", function() {
+    //   changeImage(this);
+    // });
+
+    // function changeImage(input) {
+    //   var reader;
+
+    //   if (input.files && input.files[0]) {
+    //     reader = new FileReader();
+
+    //     reader.onload = function(e) {
+    //       preview.setAttribute('src', e.target.result);
+    //     }
+
+    //     reader.readAsDataURL(input.files[0]);
+    //   }
+    // }
+
+    function icon(number){
+      var icon
+      switch (number){
+        case 0:
+          icon = '<i class="fab fa-facebook-f"></i>'
+          break;
+        case 1:
+          icon = "<i class='fab fa-snapchat-ghost'></i>"
+          break;
+        case 2:
+          icon = '<i class="fab fa-twitter"></i>'
+          break;
+        case 3:
+          icon = '<i class="fab fa-instagram"></i>'
+          break;
+        case 4:
+          icon = '<i class="fab fa-github"></i>'
+          break;
+        case 5:
+          icon = '<i class="fab fa-medium"></i>'
+          break;
+        case 6:
+          icon = '<i class="fab fa-linkedin"></i>'
+          break;
+        case 7:
+          icon = '<i class="fas fa-rupee-sign"></i>'
+          break;
+      }
+
+      return icon
+    }
+
+    function isEmpty(value){
+      if(value == '' || value == null){
+        return true
+      }else{
+        false
+      }
+    }
+
+    function makeCard1(e){
+      
+      e.preventDefault();
+
+      var name = document.getElementById('name').value;
+      var city1 = document.getElementById('city1').value;
+      var city2 = document.getElementById('city2').value;
+      var qrCode = document.getElementById('qr-code');
+      var mobileNumber = document.getElementById('mobileNumber').value;
+      var designation = document.getElementById('designation').value;
+      var social1Option = document.getElementById('social1Option').options[document.getElementById('social1Option').selectedIndex].value;
+      var social1Value = document.getElementById('social1Value').value;
+      var social2Option = document.getElementById('social2Option').options[document.getElementById('social2Option').selectedIndex].value;
+      var social2Value = document.getElementById('social2Value').value;
+
+      document.getElementById('nameValue').innerHTML = name
+      document.getElementById('city1Value').innerHTML = city1
+      
+      if( !isEmpty(city2) ){
+        document.getElementById('city2Value').innerHTML = " | " + city2
+      }else{
+        document.getElementById('city2Value').innerHTML = ''
+      }
+
+      document.getElementById('designationValue').innerHTML = designation
+
+      document.getElementById('social1Symbol').innerHTML = icon(parseInt(social1Option))
+      document.getElementById('social1Val').innerHTML = '@'+social1Value
+
+      qrCode.setAttribute('src', `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=tel%3A${mobileNumber}&choe=UTF-8`);
+
+      if(isEmpty(social2Option)){
+        document.getElementById('social2Symbol').innerHTML = ""
+        document.getElementById('social2Val').innerHTML = ""
+      }else{
+        document.getElementById('social2Symbol').innerHTML = icon(parseInt(social2Option))
+        document.getElementById('social2Val').innerHTML = '@'+social2Value
+      }
+      
+            
+      document.getElementById('card1').classList.remove('visually-hidden')
+
+
+    }
+
+    
+
+    $(function() { 
+        $("#save").click(function() { 
+            html2canvas($("#card1"), {
+                onrendered: function(canvas) {
+                    // theCanvas = canvas;
+                    // canvas.toBlob(function(blob) {
+                    //     saveAs(blob, "Dashboard.png"); 
+                    // });
+
+                    canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+
+                    return Canvas2Image.saveAsPNG(canvas);
+
+                    // var a = document.createElement('a');
+                    // a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                    // a.download = 'test.jpg';
+                    // a.click();
+                }
+            });
+        });
+    });
+
+  //   const download = () => {
+  //   const input = document.getElementById('card1');
+  //   const divHeight = input.clientHeight
+  //   const divWidth = input.clientWidth
+  //   const ratio = divHeight / divWidth;
+
+  //   html2canvas(input, { scale: '1' }).then((canvas) => {
+  //     const imgData = canvas.toDataURL('image/jpeg');
+  //     const pdfDOC = new jsPDF("l", "mm", "a0"); //  use a4 for smaller page
+
+  //     const width = pdfDOC.internal.pageSize.getWidth();
+  //     let height = pdfDOC.internal.pageSize.getHeight();
+  //     height = ratio * width;
+
+  //     pdfDOC.addImage(imgData, 'JPEG', 0, 0, width - 20, height - 10);
+  //     pdfDOC.save('summary.pdf');   //Download the rendered PDF.
+  //   });
+  // }
+
+//   function putImage()
+// {
+  
+//   var imageElement = document.getElementById("MyPix");  
+//   imageElement.src = myImage;                           
+
+// }
+
+  //   function download(){
+  //     html2canvas(document.getElementById("card1"), {
+  //     onrendered: function(canvas) {
+  //       // useCORS: true,
+  //       document.body.appendChild(canvas);
+  //     },
+  //     logging:true
+  //   }); 
+  // } 
+
+    
+    
+  
+
+  // var canvas = document.getElementById('card1');
+  // var link = document.getElementById('save');
+  // link.setAttribute('download', 'MintyPaper.png');
+  // link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+  // link.click();
+
+// $(document).ready(function(){
+//         var canvas = document.getElementById('card1');
+//         var oCtx = canvas.getContext("2d");
+//         oCtx.beginPath();
+//         oCtx.moveTo(0,0);
+//         oCtx.lineTo(300,150);
+//         oCtx.stroke();
+
+//         $('#save').on('click', function(){
+//             // opens dialog but location doesnt change due to SaveAs Dialog
+//             document.location.href = '/script.php?image=' + canvas.toDataURL();
+//         });
+//     });
+    
+  </script>
+
+  
+<!-- <script>
+  function download(){
+      var canvas = document.getElementById("card1");
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "rgba(125, 46, 138, 0.5)";
+      ctx.fillRect(25,25,100,100); 
+      ctx.fillStyle = "rgba( 0, 146, 38, 0.5)";
+      ctx.fillRect(58, 74, 125, 100);
+  }
+
+  function to_image(){
+      var canvas = document.getElementById("card1");
+      document.getElementById("theimage").src = canvas.toDataURL();
+      Canvas2Image.saveAsPNG(canvas);
+  }
+</script> -->
+
+<!-- <script>
+  function download() {
+      var pdf = new jsPDF('p', 'pt', 'letter');
+      // source can be HTML-formatted string, or a reference
+      // to an actual DOM element from which the text will be scraped.
+      source = $('#card1')[0];
+
+      // we support special element handlers. Register them with jQuery-style 
+      // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+      // There is no support for any other type of selectors 
+      // (class, of compound) at this time.
+      specialElementHandlers = {
+          // element with id of "bypass" - jQuery style selector
+          '#bypassme': function (element, renderer) {
+              // true = "handled elsewhere, bypass text extraction"
+              return true
+          }
+      };
+      margins = {
+          top: 80,
+          bottom: 60,
+          left: 40,
+          width: 522
+      };
+      // all coords and widths are in jsPDF instance's declared units
+      // 'inches' in this case
+      pdf.fromHTML(
+          source, // HTML string or DOM elem ref.
+          margins.left, // x coord
+          margins.top, { // y coord
+              'width': margins.width, // max width of content on PDF
+              'elementHandlers': specialElementHandlers
+          },
+
+          function (dispose) {
+              // dispose: object with X, Y of the last line add to the PDF 
+              //          this allow the insertion of new lines after html
+              pdf.save('Test.pdf');
+          }, margins
+      );
+  }
+</script> -->
+      
+  </body>
+</html>
